@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3911f427-b855-4984-93d8-494fc929a11c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Domain/Services/BusinessDaysCalculatorServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Services/BusinessDaysCalculatorService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Services/BusinessDaysCalculatorService.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +28,7 @@
           <entry key="gitattributes" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="hosts" value="3" />
-          <entry key="php" value="11" />
+          <entry key="php" value="12" />
           <entry key="sh" value="2" />
           <entry key="xml" value="1" />
           <entry key="yml" value="1" />
@@ -36,7 +36,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="11" />
+          <entry key="PHP" value="12" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="SmartyConfig" value="1" />
           <entry key="XML" value="1" />
@@ -70,13 +70,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Domain/Services/BusinessDaysCalculatorServiceTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+            <state relative-caret-position="307">
+              <caret line="76" column="48" lean-forward="true" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
               <folding>
                 <element signature="e#42#96#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Domain/Services/BusinessDaysCalculatorService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="75" column="20" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
+              <folding>
+                <element signature="e#39#69#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../php-dummy-task/tests/Domain/Services/BusinessDaysCalculatorServiceTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="247" column="5" lean-forward="true" selection-start-line="202" selection-start-column="4" selection-end-line="247" selection-end-column="5" />
+            <state relative-caret-position="112">
+              <caret line="229" column="10" lean-forward="true" selection-start-line="229" selection-start-column="10" selection-end-line="229" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -112,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../php-dummy-task/app/Domain/Services/BusinessDaysCalculatorService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="117" column="5" lean-forward="true" selection-start-line="93" selection-start-column="3" selection-end-line="117" selection-end-column="5" />
+            <state relative-caret-position="402">
+              <caret line="116" column="20" lean-forward="true" selection-start-line="100" selection-start-column="7" selection-end-line="116" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -146,8 +158,8 @@
         <option value="$PROJECT_DIR$/app/Constants/weekDays.php" />
         <option value="$PROJECT_DIR$/app/Domain/Models/Holiday.php" />
         <option value="$PROJECT_DIR$/app/Constants/WeekDays.php" />
-        <option value="$PROJECT_DIR$/app/Domain/Services/BusinessDaysCalculatorService.php" />
         <option value="$PROJECT_DIR$/tests/Domain/Services/BusinessDaysCalculatorServiceTest.php" />
+        <option value="$PROJECT_DIR$/app/Domain/Services/BusinessDaysCalculatorService.php" />
       </list>
     </option>
   </component>
@@ -362,12 +374,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1556368480284</updated>
-      <workItem from="1556368481450" duration="2907000" />
+      <workItem from="1556368481450" duration="2970000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2907000" />
+    <option name="totallyTimeSpent" value="2970000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -384,12 +396,12 @@
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.33513513" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.33513513" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -519,36 +531,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../php-dummy-task/app/Domain/Services/BusinessDaysCalculatorService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="117" column="5" lean-forward="true" selection-start-line="93" selection-start-column="3" selection-end-line="117" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Domain/Services/BusinessDaysCalculatorService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
-          <folding>
-            <element signature="e#39#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../php-dummy-task/tests/Domain/Services/BusinessDaysCalculatorServiceTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="247" column="5" lean-forward="true" selection-start-line="202" selection-start-column="4" selection-end-line="247" selection-end-column="5" />
+        <state relative-caret-position="112">
+          <caret line="229" column="10" lean-forward="true" selection-start-line="229" selection-start-column="10" selection-end-line="229" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../php-dummy-task/app/Domain/Services/BusinessDaysCalculatorService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="116" column="20" lean-forward="true" selection-start-line="100" selection-start-column="7" selection-end-line="116" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Domain/Services/BusinessDaysCalculatorServiceTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+        <state relative-caret-position="307">
+          <caret line="76" column="48" lean-forward="true" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
           <folding>
             <element signature="e#42#96#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Domain/Services/BusinessDaysCalculatorService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="75" column="20" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
+          <folding>
+            <element signature="e#39#69#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

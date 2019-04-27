@@ -57,6 +57,22 @@ class BusinessDaysCalculatorService
      */
     public function isBusinessDay(DateTime $date): bool
     {
+        if (in_array((int)$date->format('N'), $this->weekends)) {
+            $this->weekendDaysCount++;
+            return false; //Date is a weekend.
+        }
+
+        /** @var Holiday $holiday */
+        foreach ($this->holidays as $holiday) {
+            foreach ($holiday->getDates() as $holidayDate) {
+                $holidayDate = (new DateTime($holidayDate))->format('Y-m-d');
+                if ($date->format('Y-m-d') == $holidayDate) {
+                    $this->holidayDaysCount++;
+                    return false; //Date is a holiday.
+                }
+            }
+
+        }
         return true;
     }
 
