@@ -1,0 +1,38 @@
+version: "3.5"
+services:
+  #PHP Service
+  scratch_php72:
+    build:
+      context: docker/images/php72
+      dockerfile: Dockerfile
+    container_name: scratch_php72
+    tty: true
+    restart: unless-stopped
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    volumes:
+    - ./:/var/www
+    - ./docker/images/php72/config/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+    - scratch-network
+
+  #Nginx Service
+  scratch_nginx:
+    image: nginx:alpine
+    container_name: scratch_nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+    - "8090:80"
+#   - "443:443"
+    volumes:
+    - ./:/var/www
+    - ./docker/images/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+    - scratch-network
+
+networks:
+  scratch-network:
+    driver: bridge
