@@ -26,7 +26,7 @@
           <entry key="gitattributes" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="hosts" value="3" />
-          <entry key="php" value="15" />
+          <entry key="php" value="16" />
           <entry key="sh" value="2" />
           <entry key="xml" value="1" />
           <entry key="yml" value="1" />
@@ -34,7 +34,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="15" />
+          <entry key="PHP" value="16" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="SmartyConfig" value="1" />
           <entry key="XML" value="1" />
@@ -92,8 +92,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Domain/Hydrators/HolidaysHydrator.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-314">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/Domain/Hydrators/HolidaysHydratorTest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
               <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
@@ -138,6 +147,7 @@
         <option value="$PROJECT_DIR$/tests/Domain/Services/BusinessDaysCalculatorServiceTest.php" />
         <option value="$PROJECT_DIR$/app/Domain/Services/BusinessDaysCalculatorService.php" />
         <option value="$PROJECT_DIR$/app/Domain/Hydrators/HolidaysHydrator.php" />
+        <option value="$PROJECT_DIR$/tests/Domain/Hydrators/HolidaysHydratorTest.php" />
       </list>
     </option>
   </component>
@@ -282,13 +292,6 @@
             <path>
               <item name="Business-Days" type="b2602c69:ProjectViewProjectNode" />
               <item name="Business-Days" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Hydrators" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Business-Days" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Business-Days" type="462c0819:PsiDirectoryNode" />
               <item name="storage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -307,7 +310,7 @@
               <item name="Business-Days" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
+              <item name="Hydrators" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -325,11 +328,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/Domain" />
       <recent name="$PROJECT_DIR$/app/Domain" />
       <recent name="$PROJECT_DIR$/app/Exceptions" />
       <recent name="$PROJECT_DIR$/app/Domain/Services" />
       <recent name="$PROJECT_DIR$/tests/Domain/Services" />
-      <recent name="$PROJECT_DIR$/storage" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -354,12 +357,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1556368480284</updated>
-      <workItem from="1556368481450" duration="3486000" />
+      <workItem from="1556368481450" duration="3532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3486000" />
+    <option name="totallyTimeSpent" value="3532000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -559,6 +562,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Domain/Hydrators/HolidaysHydrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-314">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Domain/Hydrators/HolidaysHydratorTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
