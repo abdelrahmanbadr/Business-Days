@@ -13,5 +13,6 @@ class WeekDays
     const FRIDAY = 5;
     const SATURDAY = 6;
     const SUNDAY = 7;
+    const WEEKENDS = [self::SUNDAY, self::MONDAY];
 
 }
