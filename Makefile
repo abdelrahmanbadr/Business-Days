@@ -25,6 +25,9 @@ up:
 hosts:
 	sh ./update-hosts.sh
 
+cp_env:
+	cp .env.example .env
+
 phpunit_test:
 	$(BIN_DOCKER_COMPOSE) exec $(CONTAINER_PHP72) ./vendor/bin/phpunit
 
