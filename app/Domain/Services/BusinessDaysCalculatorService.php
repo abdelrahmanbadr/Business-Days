@@ -48,7 +48,7 @@ class BusinessDaysCalculatorService
         $this->holidayDaysCount = $this->weekendDaysCount = 0;
         $this->date = $startDate;
         $this->holidays = $holidays;
-        $this->weekends = WeekDays::WEEKENDS;
+        $this->weekends = explode(',', config("business_days.weekend_days"));
     }
 
     /**
