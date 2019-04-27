@@ -4,6 +4,8 @@ namespace App\Domain\Hydrators;
 
 use App\Domain\Models\Holiday;
 use App\Domain\Contracts\FileReaderInterface;
+use App\Exceptions\CountryHolidaysNotFound;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class HolidaysHydrator
@@ -29,8 +31,13 @@ class HolidaysHydrator
     {
         $content = $this->jsonFileReaderService->readFileContent();
         $holidaysArray = json_decode($content, true);
+        $countryName = config("business_days.holidays_country");
+        if (!isset($holidaysArray[$countryName])) {
+            Log::error("HOLIDAYS_COUNTRY added in .env file not found in holidays.json file $countryName");
+            return [];
+        }
         $hydratedHolidays = [];
-        foreach ($holidaysArray as $holiday) {
+        foreach ($holidaysArray[$countryName] as $holiday) {
             $hydratedHoliday = new Holiday();
             $hydratedHoliday->setYear($holiday['year'] ?? '');
             $hydratedHoliday->setDates($holiday['dates'] ?? []);

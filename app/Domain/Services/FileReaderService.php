@@ -30,11 +30,11 @@ class FileReaderService implements FileReaderInterface
     public function readFileContent(): string
     {
         if (!file_exists($this->jsonFilePath)) {
-            Log::error('The file "%s" does not exist', $this->jsonFilePath);
+            Log::error("The file $this->jsonFilePath  does not exist");
             throw new FileNotFoundException(sprintf('The file "%s" does not exist', $this->jsonFilePath));
         }
         if (!$content = file_get_contents($this->jsonFilePath)) {
-            Log::error('The file "%s" is not readable', $this->jsonFilePath);
+            Log::error("The file $this->jsonFilePath is not readable");
             throw new FileNotReadableException(sprintf('The file "%s" is not readable', $this->jsonFilePath));
         }
         return $content;

@@ -40,4 +40,8 @@ you can replace `127.0.0.1` with your docker host machine ip.
     5- Write more test cases to increase code coverage
     6- Add more validations for the api request
     7- use RabbitMQ for Pub/Sub 
+   
+#### Notes:
+To add more holidays, you can add them in storage/data/holidays.json because it only include usa holidays
+for 2019 and 2020 only.
     
