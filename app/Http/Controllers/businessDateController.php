@@ -50,6 +50,7 @@ class businessDateController extends Controller
         try {
             $initialDate = new DateTime($initialDate);
         } catch (\Exception $e) {
+
             throw new DateNotValidException(sprintf('Input initial date is not valid date %s', $initialDate));
         }
 

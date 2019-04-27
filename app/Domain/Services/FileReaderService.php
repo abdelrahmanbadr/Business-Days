@@ -4,6 +4,7 @@ namespace App\Domain\Services;
 
 use App\Exceptions\{FileNotFoundException, FileNotReadableException};
 use App\Domain\Contracts\FileReaderInterface;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class JsonFileReaderService
@@ -29,9 +30,11 @@ class FileReaderService implements FileReaderInterface
     public function readFileContent(): string
     {
         if (!file_exists($this->jsonFilePath)) {
+            Log::error('The file "%s" does not exist', $this->jsonFilePath);
             throw new FileNotFoundException(sprintf('The file "%s" does not exist', $this->jsonFilePath));
         }
         if (!$content = file_get_contents($this->jsonFilePath)) {
+            Log::error('The file "%s" is not readable', $this->jsonFilePath);
             throw new FileNotReadableException(sprintf('The file "%s" is not readable', $this->jsonFilePath));
         }
         return $content;
