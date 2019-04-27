@@ -76,4 +76,45 @@ class BusinessDaysCalculatorService
         return true;
     }
 
+    /**
+     * @param int $delay
+     */
+    public function addBusinessDays(int $delay)
+    {
+        $i = 0;
+        while ($i < $delay) {
+            if ($this->isBusinessDay($this->date)) {
+                $i++;
+            }
+            $this->date->modify("+1 day");
+        }
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getBusinessDate(): DateTime
+    {
+        //because initial day is considered a business day
+        $this->date->modify("-1 day");
+        return $this->date;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHolidayDays(): int
+    {
+        return $this->holidayDaysCount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWeekendDays(): int
+    {
+        return $this->weekendDaysCount;
+    }
+
+
 }
