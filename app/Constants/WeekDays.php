@@ -1,15 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: abdelrahmanbadr
- * Date: 4/27/19
- * Time: 3:13 PM
- */
+
 
 namespace App\Constants;
 
 
-class weekDays
+class WeekDays
 {
+    const MONDAY = 1;
+    const TUESDAY = 2;
+    const WEDNESDAY = 3;
+    const THURSDAY = 4;
+    const FRIDAY = 5;
+    const SATURDAY = 6;
+    const SUNDAY = 7;
 
 }
