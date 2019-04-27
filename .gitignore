@@ -5,6 +5,7 @@
 /vendor
 .env
 .DS_Store
+.idea/
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
