@@ -24,6 +24,7 @@ Payload :
  }
 `
 or 
+
 `http://business-days.local:8090/api/v1/businessDates?initialDate=2018-12-12T10:10:10Z&delay=3`
 
 Output:
@@ -38,7 +39,7 @@ Output:
 
 2- `http://business-days.local:8090/api/v1/isBusinessDay/{date}` Get method only and return true or false
 
-Example : `http://business-days.local:8090/api/v1/isBusinessDay/2018-12-12T10:10:10Z` will return true
+Example : `http://business-days.local:8090/api/v1/isBusinessDay/2018-12-12T10:10:10Z` will return `true`
 #### Project structure
 - Domain : The domain layer is the heart of the software, and this is where the interesting stuff happens.
 - Contracts : Has all interfaces of business days domain.
