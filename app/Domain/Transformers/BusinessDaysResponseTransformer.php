@@ -14,6 +14,13 @@ use DateTime;
  */
 class BusinessDaysResponseTransformer
 {
+    /**
+     * @param DateTime $businessDate
+     * @param int $weekendDays
+     * @param int $holidayDays
+     * @param int $delay
+     * @return array
+     */
     public function transform(DateTime $businessDate, int $weekendDays, int $holidayDays, int $delay): array
     {
         return [
