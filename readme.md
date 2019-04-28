@@ -49,6 +49,8 @@ you can replace `127.0.0.1` with your docker host machine ip.
 3- Calculate business days from the initial day and the delay then return the business date , weekendDays and holidayDays.
 
 4- Transform the data to the required response.
+
+5- For more info about the domain https://upsource.scratchpay.com/snippets/12
 #### Notes:
 1- To add more holidays, you can add them in storage/data/holidays.json because it only include usa holidays
 for 2019 and 2020 only.
