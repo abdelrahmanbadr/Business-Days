@@ -39,16 +39,16 @@ you can replace `127.0.0.1` with your docker host machine ip.
     4- Add more logs to trace errors
     5- Write more test cases to increase code coverage
     6- Add more validations for the api request
-    7- use RabbitMQ for Pub/Sub 
+    7- Use RabbitMQ for Pub/Sub 
    
 ## Business Logic :
-1- holidays dates exists in storage/data/holidays.json
+1- Holidays dates exists in storage/data/holidays.json
 
-2- read the file and hydrate it to Holiday model.
+2- Read the file and hydrate it to Holiday model.
 
-3- calculate business days from the initial day and the delay then return the business date , weekendDays and holidayDays.
+3- Calculate business days from the initial day and the delay then return the business date , weekendDays and holidayDays.
 
-4- transform the data to the required response.
+4- Transform the data to the required response.
 #### Notes:
 1- To add more holidays, you can add them in storage/data/holidays.json because it only include usa holidays
 for 2019 and 2020 only.
