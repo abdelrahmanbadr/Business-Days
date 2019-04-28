@@ -18,7 +18,7 @@ you can replace `127.0.0.1` with your docker host machine ip.
 - Domain : The domain layer is the heart of the software, and this is where the interesting stuff happens.
 - Contracts : Has all interfaces of business days domain.
 - Models : Has all entity models of business days domain.
-- Hydrators : Used to movie data from one place to another, extracting data from object or filling object with data.
+- Hydrators : Used to move data from one place to another, extracting data from object or filling object with data.
 - Services :  Services  used to hide and encapsulate App Logic.
 - Transformers :  Used to transform the response to match the business need.
 
