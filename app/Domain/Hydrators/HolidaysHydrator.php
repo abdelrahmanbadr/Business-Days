@@ -31,9 +31,9 @@ class HolidaysHydrator
     {
         $content = $this->jsonFileReaderService->readFileContent();
         $holidaysArray = json_decode($content, true);
-        $countryName = config("business_days.holidays_country");
+        $countryName = config("business_days.business_country");
         if (!isset($holidaysArray[$countryName])) {
-            Log::error("HOLIDAYS_COUNTRY added in .env file not found in holidays.json file $countryName");
+            Log::error("BUSINESS_COUNTRY added in .env file not found in holidays.json file $countryName");
             return [];
         }
         $hydratedHolidays = [];

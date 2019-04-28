@@ -54,4 +54,6 @@ you can replace `127.0.0.1` with your docker host machine ip.
 for 2019 and 2020 only.
 
 2- Country holidays and weekend days are configurable in .env file.
+(BUSINESS_COUNTRY for country code, WEEKEND_DAYS for weekend days codes from monday which is 1 to monday which is 7 )
     
+3- there is a default value for BUSINESS_COUNTRY which is USA and WEEKEND_DAYS which is 1,7 (sunday and monday).
