@@ -33,7 +33,7 @@ you can replace `127.0.0.1` with your docker host machine ip.
     $ make phpunit_test
  
 #### Improvments(@todo):
-    1. Better structure for json file for better searching.
+    1- Better structure for json file for better searching.
     2- Cache holidays json file in Redis.
     3- Add more countries hoildays and switch between them using config.
     4- Add more logs to trace errors
@@ -49,5 +49,6 @@ you can replace `127.0.0.1` with your docker host machine ip.
 #### Notes:
 1- To add more holidays, you can add them in storage/data/holidays.json because it only include usa holidays
 for 2019 and 2020 only.
+
 2- Country holidays and weekend days are configurable in .env file.
     
