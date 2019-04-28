@@ -22,7 +22,7 @@ class HolidaysHydratorTest extends TestCase
     /** @test * */
     function testHydrate(): void
     {
-        $json = '[{"year": 2019,"dates": ["2019-01-01", "2019-01-02"]}]';
+        $json = '{"USA":[{"year": 2019,"dates": ["2019-01-01", "2019-01-02"]}]}';
         $this->fileReaderMock->shouldReceive('readFileContent')->andReturn($json);
         $holidaysHydrator = new HolidaysHydrator($this->fileReaderMock);
         $holidaysHydrator->hydrate();
