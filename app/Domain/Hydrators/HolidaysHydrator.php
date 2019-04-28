@@ -2,9 +2,9 @@
 
 namespace App\Domain\Hydrators;
 
+
 use App\Domain\Models\Holiday;
-use App\Domain\Contracts\FileReaderInterface;
-use App\Exceptions\CountryHolidaysNotFound;
+use App\Domain\Contracts\{FileReaderInterface, HydratorInterface};
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Log;
  * into array of domain model (Holiday)
  *
  */
-class HolidaysHydrator
+class HolidaysHydrator implements HydratorInterface
 {
     private $jsonFileReaderService;
 

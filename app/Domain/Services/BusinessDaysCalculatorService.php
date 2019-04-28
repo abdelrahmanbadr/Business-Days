@@ -2,8 +2,8 @@
 
 namespace App\Domain\Services;
 
+use App\Domain\Contracts\BusinessDaysCalculatorServiceInterface;
 use App\Domain\Models\Holiday;
-use App\Constants\WeekDays;
 use DateTime;
 
 
@@ -15,7 +15,7 @@ use DateTime;
  * past the date after which the settlement will reach the bank account
  *
  */
-class BusinessDaysCalculatorService
+class BusinessDaysCalculatorService implements BusinessDaysCalculatorServiceInterface
 {
     /**
      * @var DateTime
