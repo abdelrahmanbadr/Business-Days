@@ -56,7 +56,7 @@ class businessDateController extends Controller
 
         $holidaysArray = $this->getHolidaysArray();
         $businessDaysCalculator = new BusinessDaysCalculatorService($initialDate, $holidaysArray);
-        return response()->json($businessDaysCalculator->isBusinessDay($initialDate), 200);
+        return response()->json($businessDaysCalculator->isBusinessDay(), 200);
     }
 
     /**

@@ -20,11 +20,11 @@ class BusinessDaysCalculatorService implements BusinessDaysCalculatorServiceInte
     /**
      * @var DateTime
      */
-    private $date;
+    private $initialDate;
     /**
      * @var array|Holiday[]
      */
-    private $holidays;
+    private $holidaysArray;
     /**
      * @var array
      */
@@ -40,40 +40,48 @@ class BusinessDaysCalculatorService implements BusinessDaysCalculatorServiceInte
 
 
     /**
-     * @param DateTime $startDate Date to start calculations from
-     * @param Holiday[] $holidays Array of holidays
+     * @param DateTime $initialDate Date to start calculations from
+     * @param Holiday[] $holidaysArray Array of holidays
      */
-    public function __construct(DateTime $startDate, array $holidays)
+    public function __construct(DateTime $initialDate, array $holidaysArray)
     {
         $this->holidayDaysCount = $this->weekendDaysCount = 0;
-        $this->date = $startDate;
-        $this->holidays = $holidays;
+        $this->initialDate = $initialDate;
+        $this->holidaysArray = $holidaysArray;
         $this->weekends = explode(',', config("business_days.weekend_days"));
     }
 
     /**
-     * @param DateTime $date
      * @return bool
      */
-    public function isBusinessDay(DateTime $date): bool
+    public function isBusinessDay(): bool
     {
-        if (in_array((int)$date->format('N'), $this->weekends)) {
+        return !$this->isHoliday() && !$this->isWeekendDay();
+    }
+
+    public function isWeekendDay(): bool
+    {
+        $isWeekend = in_array($this->initialDate->format('N'), $this->weekends);
+        if ($isWeekend) {
             $this->weekendDaysCount++;
-            return false; //Date is a weekend.
+            return true;
         }
 
-        /** @var Holiday $holiday */
-        foreach ($this->holidays as $holiday) {
-            foreach ($holiday->getDates() as $holidayDate) {
-                $holidayDate = (new DateTime($holidayDate))->format('Y-m-d');
-                if ($date->format('Y-m-d') == $holidayDate) {
+        return false;
+    }
+
+    public function isHoliday(): bool
+    {
+        /** @var  $holiday Holiday */
+        foreach ($this->holidaysArray as $holiday) {
+            foreach ($holiday->getDates() as $date) {
+                if ($date == $this->initialDate->format("Y-m-d")) {
                     $this->holidayDaysCount++;
-                    return false; //Date is a holiday.
+                    return true;
                 }
             }
-
         }
-        return true;
+        return false;
     }
 
     /**
@@ -83,10 +91,10 @@ class BusinessDaysCalculatorService implements BusinessDaysCalculatorServiceInte
     {
         $i = 0;
         while ($i < $delay) {
-            if ($this->isBusinessDay($this->date)) {
+            if ($this->isBusinessDay()) {
                 $i++;
             }
-            $this->date->modify("+1 day");
+            $this->initialDate->modify("+1 day");
         }
     }
 
@@ -96,8 +104,8 @@ class BusinessDaysCalculatorService implements BusinessDaysCalculatorServiceInte
     public function getBusinessDate(): DateTime
     {
         //because initial day is considered a business day
-        $this->date->modify("-1 day");
-        return $this->date;
+        $this->initialDate->modify("-1 day");
+        return $this->initialDate;
     }
 
     /**

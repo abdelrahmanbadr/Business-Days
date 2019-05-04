@@ -36,51 +36,120 @@ class BusinessDaysCalculatorServiceTest extends TestCase
     public function isBusinessDayDataProvider()
     {
         return [
-            [
-                "initialDate" => "2019-01-01",
-                "result" => false,
-            ],
-            [
-                "initialDate" => "2019-01-02",
-                "result" => true,
-            ],
-            [
-                "initialDate" => "2019-01-03",
-                "result" => true,
-            ],
-            [
-                "initialDate" => "2019-01-06",
-                "result" => false,
-            ],
-            [
-                "initialDate" => "2019-01-07",
-                "result" => false,
-            ],
+
 
         ];
-    }
-
-    /**
-     * @param string $initialDate
-     * @param bool $result
-     *
-     * @dataProvider isBusinessDayDataProvider
-     * @return void
-     */
-    public function testIsBusinessDay(string $initialDate, bool $result)
-    {
-        $initialDate = new DateTime($initialDate);
-        $calculator = new BusinessDaysCalculatorService(
-            $initialDate,
-            $this->holidaysArray
-        );
-        $this->assertEquals($calculator->isBusinessDay($initialDate), $result);
     }
 
     /**
      * @return array
      */
     public function dataProvider()
+    {
+
+        return [
+            [
+                "initialDate" => "2019-01-01",
+                "isWeekend" => false,
+                "isHoliday" => true,
+                "isBusinessDay" => false,
+            ],
+            [
+                "initialDate" => "2019-05-04",
+                "isWeekend" => false,
+                "isHoliday" => false,
+                "isBusinessDay" => true,
+            ],
+            [
+                "initialDate" => "2019-05-05",
+                "isWeekend" => true,
+                "isHoliday" => false,
+                "isBusinessDay" => false,
+            ],
+
+            [
+                "initialDate" => "2019-04-02",
+                "isWeekend" => false,
+                "isHoliday" => true,
+                "isBusinessDay" => false,
+            ],
+            [
+                "initialDate" => "2019-01-02",
+                "isWeekend" => false,
+                "isHoliday" => false,
+                "isBusinessDay" => true,
+            ],
+
+            [
+                "initialDate" => "2019-01-03",
+                "isWeekend" => false,
+                "isHoliday" => false,
+                "isBusinessDay" => true,
+            ],
+            [
+                "initialDate" => "2019-01-06",
+                "isWeekend" => true,
+                "isHoliday" => false,
+                "isBusinessDay" => false,
+            ],
+            [
+                "initialDate" => "2019-01-07",
+                "isWeekend" => true,
+                "isHoliday" => false,
+                "isBusinessDay" => false,
+            ],
+        ];
+    }
+
+    /**
+     * @param string $initialDate
+     * @param bool $isWeekend
+     *
+     * @dataProvider dataProvider
+     * @return void
+     */
+    public function testIsWeekend($initialDate, $isWeekend)
+    {
+        $date = new DateTime($initialDate);
+        $obj = new BusinessDaysCalculatorService($date, []);
+        $this->assertEquals($obj->isWeekendDay(), $isWeekend);
+    }
+
+    /**
+     * @param string $initialDate
+     * @param bool $isWeekend
+     * @param bool $isHoliday
+     *
+     * @dataProvider dataProvider
+     * @return void
+     */
+    public function testIsHoliday($initialDate, $isWeekend, $isHoliday)
+    {
+        $date = new DateTime($initialDate);
+        $obj = new BusinessDaysCalculatorService($date, $this->holidaysArray);
+        $this->assertEquals($obj->isHoliday(), $isHoliday);
+    }
+
+    /**
+     * @param string $initialDate
+     * @param bool $isWeekend
+     * @param bool $isHoliday
+     * @param bool $isBusinessDay
+     *
+     * @dataProvider dataProvider
+     * @return void
+     */
+    public function testIsBusinessDay($initialDate, $isWeekend, $isHoliday, $isBusinessDay)
+    {
+        $date = new DateTime($initialDate);
+        $obj = new BusinessDaysCalculatorService($date, $this->holidaysArray);
+        $this->assertEquals($obj->isBusinessDay(), $isBusinessDay);
+    }
+
+    /**
+     * @return array
+     */
+    public function businessDaysServiceDataProvider()
     {
 
         return [
@@ -230,7 +299,7 @@ class BusinessDaysCalculatorServiceTest extends TestCase
      * @param int $delay
      * @param array $result
      *
-     * @dataProvider dataProvider
+     * @dataProvider businessDaysServiceDataProvider
      * @return void
      */
     public function testBusinessDaysService(string $initialDate, int $delay, array $result)

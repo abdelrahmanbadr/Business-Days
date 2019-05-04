@@ -6,7 +6,7 @@ use DateTime;
 
 interface BusinessDaysCalculatorServiceInterface
 {
-    public function isBusinessDay(DateTime $date): bool;
+    public function isBusinessDay(): bool;
 
     public function addBusinessDays(int $delay);
 
