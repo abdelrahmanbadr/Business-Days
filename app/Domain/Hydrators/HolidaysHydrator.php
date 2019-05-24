@@ -6,6 +6,7 @@ namespace App\Domain\Hydrators;
 use App\Domain\Models\Holiday;
 use App\Domain\Contracts\{FileReaderInterface, HydratorInterface};
 use Illuminate\Support\Facades\Log;
+use App\Exceptions\YearHolidaysNotFoundException;
 
 /**
  * Class HolidaysHydrator
@@ -25,9 +26,11 @@ class HolidaysHydrator implements HydratorInterface
     }
 
     /**
+     * @param string $year
      * @return array
+     * @throws YearHolidaysNotFoundException
      */
-    public function hydrate(): array
+    public function hydrate(string $year): array
     {
         $content = $this->jsonFileReaderService->readFileContent();
         $holidaysArray = json_decode($content, true);
@@ -36,15 +39,22 @@ class HolidaysHydrator implements HydratorInterface
             Log::error("BUSINESS_COUNTRY added in .env file not found in holidays.json file $countryName");
             return [];
         }
-        $hydratedHolidays = [];
+
+        //@todo try to make better search algorithm rather than linear search
+        $hydratedHoliday = [];
         foreach ($holidaysArray[$countryName] as $holiday) {
-            $hydratedHoliday = new Holiday();
-            $hydratedHoliday->setYear($holiday['year'] ?? '');
-            $hydratedHoliday->setDates($holiday['dates'] ?? []);
-            $hydratedHolidays[] = $hydratedHoliday;
+
+            if ($holiday['year'] == $year) {
+                $hydratedHoliday = $holiday['dates'];
+            }
         }
 
-        return $hydratedHolidays;
+        if (empty($hydratedHoliday)) {
+            Log::error("year holidays not found " . $year);
+            throw new YearHolidaysNotFoundException("year holidays not found");
+        }
+
+        return $hydratedHoliday;
     }
 
 }

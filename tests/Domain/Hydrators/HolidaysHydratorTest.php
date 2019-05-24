@@ -3,6 +3,7 @@
 namespace Tests\Domain\Hydrators;
 
 use App\Domain\Hydrators\HolidaysHydrator;
+use App\Exceptions\YearHolidaysNotFoundException;
 use Tests\TestCase;
 use  Mockery;
 use App\Domain\Services\FileReaderService;
@@ -25,13 +26,18 @@ class HolidaysHydratorTest extends TestCase
         $json = '{"USA":[{"year": 2019,"dates": ["2019-01-01", "2019-01-02"]}]}';
         $this->fileReaderMock->shouldReceive('readFileContent')->andReturn($json);
         $holidaysHydrator = new HolidaysHydrator($this->fileReaderMock);
-        $holidaysHydrator->hydrate();
-        $holidaysArray = [];
-        $holiday = new Holiday();
-        $holiday->setYear("2019");
-        $holiday->setDates(["2019-01-01", "2019-01-02"]);
-        $holidaysArray[] = $holiday;
-        $this->assertEquals($holidaysHydrator->hydrate(), $holidaysArray);
+        $result = $holidaysHydrator->hydrate("2019");
+        $this->assertEquals($result, ["2019-01-01", "2019-01-02"]);
+    }
+
+    /** @test * */
+    function testThrowYearNotFoundException(): void
+    {
+        $this->expectException(YearHolidaysNotFoundException::class);
+        $json = '{"USA":[{"year": 2019,"dates": ["2019-01-01", "2019-01-02"]}]}';
+        $this->fileReaderMock->shouldReceive('readFileContent')->andReturn($json);
+        $holidaysHydrator = new HolidaysHydrator($this->fileReaderMock);
+        $holidaysHydrator->hydrate("2010");
     }
 
 }
