@@ -76,13 +76,15 @@ Example : `http://business-days.local:8090/api/v1/isBusinessDay/2018-12-12T10:10
 
 4- Transform the data to the required response.
 
-5- For more info about the domain https://upsource.scratchpay.com/snippets/12
+5- Use redis for cache instead of file cache
+
+For more info about the domain https://upsource.scratchpay.com/snippets/12
 #### Notes:
 1- To add more holidays, you can add them in storage/data/holidays.json because it only include usa holidays
 for 2019 and 2020 only.
 
 2- Country holidays and weekend days are configurable in .env file.
-(BUSINESS_COUNTRY for country code, WEEKEND_DAYS for weekend days codes from monday which is 1 to monday which is 7 )
+(BUSINESS_COUNTRY for country code, WEEKEND_DAYS for weekend days codes from monday which is 1 to sunday which is 7 )
     
 3- There is a default value for BUSINESS_COUNTRY which is USA and WEEKEND_DAYS which is 1,7 (sunday and monday).
 
