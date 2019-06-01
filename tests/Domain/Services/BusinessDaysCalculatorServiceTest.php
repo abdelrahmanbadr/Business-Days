@@ -33,17 +33,6 @@ class BusinessDaysCalculatorServiceTest extends TestCase
     /**
      * @return array
      */
-    public function isBusinessDayDataProvider()
-    {
-        return [
-
-
-        ];
-    }
-
-    /**
-     * @return array
-     */
     public function dataProvider()
     {
 
